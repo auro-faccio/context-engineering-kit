@@ -1,34 +1,71 @@
-# Context Engineering Kit
+# CLAUDE.md
 
-Claude Code plugin marketplace with advanced context engineering techniques focused on improving agent result quality.
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-See @README for project overview and @CONTRIBUTING.md for contributing guidelines.
+## Project Overview
 
-## Project Structure
+Context Engineering Kit (CEK) is a Claude Code plugin marketplace: a collection of prompt-engineering plugins (skills, agents, rules, hooks) distributed via `.claude-plugin/marketplace.json`. There is almost no application code — the repository *is* the prompts. The one exception is `plugins/reflexion/hooks/`, a small Bun/TypeScript hook implementation.
+
+See @README.md for the full plugin catalog and feature comparison, and @CONTRIBUTING.md for how to add a new plugin.
+
+## Repository Structure
 
 ```
 context-engineering-kit/
 ├── .claude-plugin/
-│   └── marketplace.json    # Main marketplace manifest with all plugins
-├── plugins/                 # Plugin source code
-│   └── <plugin-name>/
-│       ├── .claude-plugin/
-│       │   └── plugin.json  # Plugin manifest
-│       ├── README.md
-│       ├── commands/        # Slash commands (*.md)
-│       └── skills/          # Skills (*.md)
-├── docs/                    # Documentation (GitBook)
-│   └── plugins/
-│       └── <plugin-name>/   # Plugin documentation
-│           └── README.md
-├── specs/                   # Feature specifications
-├── justfile                 # Development commands
-└── CONTRIBUTING.md          # Contribution guidelines
+│   └── marketplace.json     # Marketplace manifest: name, version, and the list of plugins (name, version, description, author, source, category)
+├── .claude/                 # This repo's own project-level Claude Code config
+│   ├── commands/             # e.g. bump-plugin.md
+│   ├── rules/                 # Auto-loaded repo rules, e.g. refactor-cross-references.md
+│   └── skills/                 # (currently empty)
+├── plugins/<plugin-name>/
+│   ├── .claude-plugin/plugin.json   # { name, version, description, author } — no other fields in practice
+│   ├── README.md                     # Kept in sync with docs/plugins/<name>/README.md
+│   ├── skills/<skill-name>/SKILL.md  # Skills — see "Plugin Anatomy" below; most act as slash commands too
+│   ├── agents/<agent-name>.md        # Specialized subagents (only in review, sadd, sdd, fpf)
+│   ├── rules/<rule-name>.md          # Path-scoped auto-attached rules (only in ddd, tech-stack)
+│   ├── hooks/                        # Lifecycle hooks (only in reflexion; Bun/TS)
+│   ├── scripts/                      # Shell helpers invoked by skills (sadd, sdd)
+│   ├── prompts/ or tasks/            # Extra prompt fragments referenced by skills (sdd, fpf)
+├── docs/                    # GitBook site (root configured via .gitbook.yaml, nav in docs/SUMMARY.md)
+│   ├── plugins/<plugin-name>/README.md   # Mirror of plugins/<plugin-name>/README.md
+│   ├── reference/{agents,commands,skills}.md  # Flat reference tables across all plugins
+│   ├── guides/               # Workflow guides (e.g. spec-driven-development.md, ci-integration.md)
+│   └── resources/            # papers.md, related-projects.md
+├── .specs/                  # Working area for spec-driven-development plugins (sdd/sadd), not versioned as project docs
+│   ├── tasks/{draft,todo,in-progress,done}/
+│   ├── research/, reports/, analysis/
+├── .devcontainer/           # Devcontainer used by `just sandbox`
+└── justfile                 # All repo-management commands (see below)
+```
+
+## Plugin Anatomy
+
+There is **no `commands/` directory** anywhere in `plugins/` — a past convention some docs still reference. Slash commands and skills are unified: a file at `plugins/<plugin>/skills/<name>/SKILL.md` with an `argument-hint` and/or `allowed-tools` in its frontmatter is invoked as `/plugin-name:skill-name` exactly like a command, while also being available as a model-invoked skill. Example frontmatter (`plugins/git/skills/commit/SKILL.md`):
+
+```yaml
+---
+name: commit
+description: Create well-formatted commits with conventional commit messages and emoji
+argument-hint: Optional flags like --no-verify to skip pre-commit checks
+model: haiku
+allowed-tools: Bash(git status:*), Bash(git add:*), ...
+---
+```
+
+`rules/*.md` files (ddd, tech-stack) use a different frontmatter shape — `title` + `paths` glob — and are auto-attached by Claude Code when a matching file is read/written, rather than invoked explicitly:
+
+```yaml
+---
+title: Boy Scout Rule — Incremental Improvement Without Scope Creep
+paths:
+  - "src/**/*"
+---
 ```
 
 ## Available Plugins
 
-review, customaize-agent, ddd, docs, git, kaizen, mcp, reflexion, sadd, sdd, tdd, tech-stack
+`review`, `customaize-agent`, `ddd`, `docs`, `fpf`, `git`, `kaizen`, `mcp`, `reflexion`, `sadd`, `sdd`, `tdd`, `tech-stack`
 
 ## Development Commands
 
@@ -37,15 +74,33 @@ just help                                       # Show all commands
 just list-plugins                               # List plugins with versions
 just sync-docs-to-plugins                       # Copy docs/plugins/*/README.md → plugins/*/README.md
 just sync-plugins-to-docs                       # Copy plugins/*/README.md → docs/plugins/*/README.md
-just set-version <name> <x.y.z>                 # Update plugin version
+just set-version <name> <x.y.z>                 # Update plugin version (also see /bump-plugin command)
 just set-marketplace-version <x.y.z>            # Update marketplace version
+just sandbox / attach-sandbox / stop-sandbox    # Manage the devcontainer sandbox
+```
+
+There is no build/lint/test pipeline for the marketplace content itself (no CI workflow in `.github/`). The one exception is `plugins/reflexion/hooks/`, a real TypeScript package with tests:
+
+```bash
+cd plugins/reflexion/hooks
+bun test              # or: bun run test (vitest run)
+bun run test:watch
+bun run test:coverage
+```
+
+To manually validate a plugin's prompts, install it locally rather than from the registry:
+
+```bash
+/plugin marketplace add ./path/to/context-engineering-kit
+# or scope a session to specific plugin dirs without installing:
+claude --plugin-dir ./plugins/<plugin-one> --plugin-dir ./plugins/<plugin-two>
 ```
 
 ## Key Development Rules
 
 ### Plugin Design Philosophy
 
-1. **Commands over skills** - Commands load on-demand; skill descriptions load into context by default
+1. **Commands over skills** - Commands (skills with `argument-hint`/slash invocation) load on-demand; plain skill descriptions load into context by default
 2. **Specialized agents** - Use agents with focused context to reduce hallucinations
 3. **Setup-commands** - Use setup commands to update CLAUDE.md for persistent project context
 4. **Minimal tokens** - Every token counts; keep prompts concise
@@ -84,11 +139,15 @@ grep -r "<plugin-name>" docs/ README.md --include="*.md" -l
 - Include key concepts with one-line explanations
 - Keep YAML `name:` field matching folder name for consistency
 
+### When Refactoring Numbered Sequences
+
+When removing/renumbering a numbered element (gate, step, section, list item) in a prompt file, grep the *entire* file for every derived reference to the old range/count (not just the primary block) — checklists, template comments, and action items often reference the old count and go silently stale. See `.claude/rules/refactor-cross-references.md` for the full example.
+
 ### When Creating/Refactoring Agents
 
 **Agent File Location**: `.claude/agents/<agent-name>.md` or `plugins/<plugin>/agents/<agent-name>.md`
 
-See `plugins/customaize-agent/commands/create-agent.md` command for detailed agent creation guidelines including frontmatter rules, required sections, process ordering, and decision table patterns.
+See `plugins/customaize-agent/skills/create-agent/SKILL.md` for detailed agent creation guidelines including frontmatter rules, required sections, process ordering, and decision table patterns.
 
 ## Use Context7 MCP for Loading Documentation
 
