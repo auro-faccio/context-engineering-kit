@@ -123,3 +123,11 @@ Structured reasoning with ADI (Abduction-Deduction-Induction) cycle for auditabl
 - `/decay` - Manage evidence freshness: refresh stale evidence, deprecate obsolete decisions, or waive with documented rationale.
 - `/actualize` - Reconcile the FPF knowledge base with codebase changes, detecting context drift and stale evidence.
 - `/reset` - Archive current session and reset the FPF cycle for a fresh start.
+
+### Task List
+
+Commands for managing a tagged markdown `TASKS.md` file. [More info](../plugins/task-list/README.md).
+
+- `/add-task` - Add a new task or subtask to `TASKS.md`, inferring or asking for the right section.
+- `/complete-task` - Check off a task, stamp its completion date, and log time spent.
+- `/list-tasks` - Summarize and filter tasks by section, tag, context, flag, due date, or status.

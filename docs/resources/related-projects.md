@@ -51,6 +51,16 @@ CEK's Spec-Driven Development (SDD) plugin integrates best practices from these 
 
 ---
 
+## Task List
+
+CEK's Task List plugin is based on the task-management approach from:
+
+- **[anthropics/knowledge-work-plugins](https://github.com/anthropics/knowledge-work-plugins)** - Anthropic's collection of knowledge-work plugins; its `productivity` plugin's `task-management` skill establishes the single-`TASKS.md`-file convention this plugin builds on.
+
+The Task List plugin adapts that convention into this repo's command-over-skill architecture (`/add-task`, `/complete-task`, `/list-tasks` instead of an always-loaded skill) and extends the task format with inline `#tag @context +flag due:/_done:/_spent:` metadata for filtering and time tracking.
+
+---
+
 ## How CEK Integrates These Projects
 
 Context Engineering Kit collects these techniques and splits them into separate plugins, with additional features and improvements.

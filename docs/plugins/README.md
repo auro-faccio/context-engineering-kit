@@ -4,7 +4,7 @@ icon: grid-4
 
 # Plugins
 
-This directory contains comprehensive documentation for all 13 plugins in the Context Engineering Kit. Each plugin is designed to enhance Claude Code with specific capabilities focused on code quality, development workflows, and continuous improvement.
+This directory contains comprehensive documentation for all 14 plugins in the Context Engineering Kit. Each plugin is designed to enhance Claude Code with specific capabilities focused on code quality, development workflows, and continuous improvement.
 
 ## Quick Navigation
 
@@ -21,6 +21,7 @@ This directory contains comprehensive documentation for all 13 plugins in the Co
 - [Docs](docs/) - Commands for analyzing projects, writing and refining documentation.
 - [Tech Stack](tech-stack/) - Rules for language-specific best practices, automatically applied when working on matching file types.
 - [MCP](mcp/) - Commands for setting up well-known MCP server integrations when needed and updating the CLAUDE.md file with requirements to use MCP servers in the current project.
+- [Task List](task-list/) - Commands for managing a tagged markdown `TASKS.md` file with sections, due dates, tags, contexts, and time tracking.
 
 ## Installation
 
@@ -188,6 +189,21 @@ Continuous improvement methodology with multiple root cause analysis techniques.
 **When to use:** Investigating issues, bugs, or process improvements.
 
 [Full Documentation](kaizen/)
+
+#### Task List
+
+Lightweight task management using a single tagged markdown `TASKS.md` file per project.
+
+**Key Features:**
+
+* Sections, nested subtasks, and checkboxes in plain markdown
+* Inline metadata: `#tag`, `@context`, `+flag`, `due:`, `_done:`, `_spent:`
+* Filtering by tag, context, flag, due date, or status
+* Time tracking logged on completion
+
+**When to use:** Tracking personal or project tasks without leaving the editor or adding a new tool.
+
+[Full Documentation](task-list/)
 
 ### Customization & Setup
 
