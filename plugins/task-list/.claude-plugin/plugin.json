@@ -1,6 +1,6 @@
 {
   "name": "task-list",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Commands for managing a tagged markdown TASKS.md file with sections, due dates, tags, contexts, and time tracking.",
   "author": {
     "name": "Vlad Goncharov",

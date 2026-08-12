@@ -28,6 +28,6 @@ Each task line is `- [ ]`/`- [x] <text> [#tag]* [@context]* [+flag]* [due:YYYY-M
    - `due this week` / `overdue` / `due <date>` filters by the `due:` date against today.
    - `done` / `open` filters by checked state.
    - No argument means show everything.
-3. Print the result grouped by section, preserving original order, using `[ ]`/`[x]` checkboxes and indentation to mirror the file.
+3. Print the result grouped by section, preserving original order, using `[ ]`/`[x]` checkboxes and indentation to mirror the file. Head each section with its completed/total count (e.g. `Project: Website Redesign (1/4 done)`) and end with an overall count across the filtered results.
 4. Call out anything overdue (`due:` date before today, not done) or tagged `+urgent` at the top of the summary.
 5. Do not modify `TASKS.md`.
