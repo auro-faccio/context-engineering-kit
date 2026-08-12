@@ -233,6 +233,7 @@ To view all available plugins:
 - [Docs](https://neolab.gitbook.io/cek/plugins/docs) - Commands for analyzing projects, writing and refining documentation.
 - [Tech Stack](https://neolab.gitbook.io/cek/plugins/tech-stack) - Rules for language-specific best practices, automatically applied when working on matching file types.
 - [MCP](https://neolab.gitbook.io/cek/plugins/mcp) - Commands for setting up well-known MCP server integrations when needed and updating the CLAUDE.md file with requirements to use MCP servers in the current project.
+- [Task List](https://neolab.gitbook.io/cek/plugins/task-list) - Commands for managing a tagged markdown `TASKS.md` file with sections, due dates, tags, contexts, and time tracking.
 
 ## Stay ahead
 
@@ -641,6 +642,22 @@ Commands for integrating Model Context Protocol servers with your project. Each 
 - [/setup-codemap-cli](https://neolab.gitbook.io/cek/plugins/mcp/setup-codemap-cli) - Guide for setting up Codemap CLI for intelligent codebase visualization and navigation
 - [/setup-arxiv-mcp](https://neolab.gitbook.io/cek/plugins/mcp/setup-arxiv-mcp) - Guide for setting up arXiv/Paper Search MCP server via Docker MCP for academic paper search and retrieval from multiple sources
 - [/build-mcp](https://neolab.gitbook.io/cek/plugins/mcp/build-mcp) - Guide for creating high-quality MCP servers that enable LLMs to interact with external services
+
+### [Task List](https://neolab.gitbook.io/cek/plugins/task-list)
+
+Commands for managing a single `TASKS.md` file per project, using a tagged markdown syntax (`#tag @context +flag due: _done: _spent:`) for sections, due dates, contexts, and time tracking — no external tool or database required.
+
+**How to install**
+
+```bash
+/plugin install task-list@NeoLabHQ/context-engineering-kit
+```
+
+**Commands**
+
+- [/add-task](https://neolab.gitbook.io/cek/plugins/task-list/add-task) - Add a new task or subtask to `TASKS.md`, inferring or asking for the right section
+- [/complete-task](https://neolab.gitbook.io/cek/plugins/task-list/complete-task) - Check off a task, stamp its completion date, and log time spent
+- [/list-tasks](https://neolab.gitbook.io/cek/plugins/task-list/list-tasks) - Summarize and filter tasks by section, tag, context, flag, due date, or status
 
 ## Theoretical Foundation
 
