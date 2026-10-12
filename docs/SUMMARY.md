@@ -83,6 +83,7 @@
     * [do-in-steps](plugins/sadd/do-in-steps.md)
     * [judge](plugins/sadd/judge.md)
     * [judge-with-debate](plugins/sadd/judge-with-debate.md)
+    * [ar-board](plugins/sadd/ar-board.md)
     * [tree-of-thoughts](plugins/sadd/tree-of-thoughts.md)
     * [multi-agent-patterns](plugins/sadd/multi-agent-patterns.md)
     * [subagent-driven-development](plugins/sadd/subagent-driven-development.md)

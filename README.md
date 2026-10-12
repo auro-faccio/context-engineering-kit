@@ -370,6 +370,7 @@ Execution framework for competitive generation, multi-agent evaluation, and suba
 - [/tree-of-thoughts](https://neolab.gitbook.io/cek/plugins/sadd/tree-of-thoughts) - Execute complex reasoning through systematic exploration of solution space, pruning unpromising branches, and synthesizing the best solution
 - [/judge-with-debate](https://neolab.gitbook.io/cek/plugins/sadd/judge-with-debate) - Evaluate solutions through iterative multi-judge debate with consensus building or disagreement reporting
 - [/judge](https://neolab.gitbook.io/cek/plugins/sadd/judge) - Evaluate completed work using LLM-as-Judge with structured rubrics and evidence-based scoring
+- [/ar-board](https://neolab.gitbook.io/cek/plugins/sadd/ar-board) - Approve or reject candidate options on a local keyboard-driven board, with comments, and let the agent act on your decisions
 
 **Skills**
 

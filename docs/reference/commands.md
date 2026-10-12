@@ -89,6 +89,7 @@ Execution framework for parallel/sequential task dispatch, competitive generatio
 
 - `/judge-with-debate` - Evaluate solutions through iterative multi-judge debate with consensus building or disagreement reporting
 - `/judge` - Evaluate completed work using LLM-as-Judge with structured rubrics and evidence-based scoring
+- `/ar-board` - Approve or reject candidate options on a local keyboard-driven board, with comments, and let the agent act on your decisions
 
 ### Docs
 

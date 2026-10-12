@@ -95,6 +95,7 @@ Execution framework for parallel/sequential task dispatch, competitive generatio
 
 * **Execution patterns**: parallel (`do-in-parallel`), sequential (`do-in-steps`), competitive (`do-competitively`), exploration (`tree-of-thoughts`)
 * **Evaluation**: single judge (`judge`) or multi-judge debate (`judge-with-debate`)
+* **Human decision loop**: approve/reject candidates on a local board with comments (`ar-board`)
 * Fresh context isolation per task
 * Quality gates with code review between tasks
 * Multi-agent architecture patterns (supervisor, peer-to-peer, hierarchical)

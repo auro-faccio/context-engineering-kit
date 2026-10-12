@@ -59,6 +59,7 @@ Both judges are general purpose, so they are good as at evaluating code implemen
 - [/tree-of-thoughts](./tree-of-thoughts.md) - Execute complex reasoning tasks through systematic exploration of solution space, pruning unpromising branches, expanding viable approaches, and synthesizing the best solution.
 - [/judge-with-debate](./judge-with-debate.md) - Evaluate solutions through iterative multi-judge debate where independent judges analyze, challenge each other's assessments, and refine evaluations until reaching consensus or maximum rounds.
 - [/judge](./judge.md) - Evaluate completed work using LLM-as-Judge with structured rubrics, context isolation, and evidence-based scoring.
+- [/ar-board](./ar-board.md) - Triage many candidate options on a local keyboard board (A = approve, R = reject, with comments) and act only on what you approved. Use when you want to steer the agent with decisions instead of reading long reports.
 
 ## Skills Overview
 
