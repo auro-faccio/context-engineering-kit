@@ -1,5 +1,6 @@
 ---
 name: actualize
+disable-model-invocation: true
 description: "Reconcile the project's FPF state with recent repository changes"
 ---
 

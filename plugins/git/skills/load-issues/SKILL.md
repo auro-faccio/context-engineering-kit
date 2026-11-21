@@ -1,5 +1,6 @@
 ---
 name: load-issues
+disable-model-invocation: true
 description: Load all open issues from GitHub and save them as markdown files
 argument-hint: None required - loads all open issues automatically
 allowed-tools: Bash(gh issue:*), Bash(mkdir:*), Write

@@ -1,5 +1,6 @@
 ---
 name: implement-task
+disable-model-invocation: true
 description: Implement a task with automated LLM-as-Judge verification per step
 argument-hint: Task file [options] (e.g., "add-validation.feature.md --continue --human-in-the-loop")
 ---

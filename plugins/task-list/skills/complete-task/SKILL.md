@@ -1,5 +1,6 @@
 ---
 name: complete-task
+disable-model-invocation: true
 description: Mark a task in TASKS.md as done, stamping the completion date and optionally logging time spent
 argument-hint: Task text (or partial match) to complete, plus optional time spent (e.g. "Practice run-through 45m")
 ---
