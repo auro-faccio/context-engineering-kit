@@ -1,5 +1,6 @@
 ---
 name: resolve-fixed-pr-comments
+disable-model-invocation: true
 description: Verify what PR review comments have been addressed (committed/pushed OR uncommitted local changes) and resolve the threads that are genuinely fixed or no longer relevant.
 ---
 

@@ -1,5 +1,6 @@
 ---
 name: plan-task
+disable-model-invocation: true
 description: Refine, parallelize, and verify a draft task specification into a fully planned implementation-ready task
 argument-hint: Path to draft task file (e.g., ".specs/tasks/draft/add-validation.feature.md") [options]
 ---

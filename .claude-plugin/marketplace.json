@@ -1,7 +1,7 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "context-engineering-kit",
-  "version": "3.6.1",
+  "version": "3.8.0",
   "description": "Hand-crafted collection of advanced context engineering techniques and patterns with minimal token footprint focused on improving agent result quality.",
   "owner": {
     "name": "NeoLabHQ",
@@ -11,7 +11,7 @@
     {
       "name": "reflexion",
       "description": "Collection of commands that force LLM to reflect on previous response and output. Based on papers like Self-Refine and Reflexion. These techniques improve the output of large language models by introducing feedback and refinement loops.",
-      "version": "3.0.0",
+      "version": "3.1.0",
       "author": {
         "name": "Vlad Goncharov",
         "email": "vlad.goncharov@neolab.finance"
@@ -22,7 +22,7 @@
     {
       "name": "review",
       "description": "Introduce codebase and PR review commands and skills using multiple specialized agents.",
-      "version": "3.2.0",
+      "version": "3.3.0",
       "author": {
         "name": "Vlad Goncharov",
         "email": "vlad.goncharov@neolab.finance"
@@ -33,7 +33,7 @@
     {
       "name": "git",
       "description": "Introduces commands for commit and PRs creation, plus skills for git worktrees and notes.",
-      "version": "3.2.0",
+      "version": "3.3.0",
       "author": {
         "name": "Vlad Goncharov",
         "email": "vlad.goncharov@neolab.finance"
@@ -44,7 +44,7 @@
     {
       "name": "tdd",
       "description": "Introduces commands for test-driven development, common anti-patterns and skills for testing using subagents.",
-      "version": "3.1.0",
+      "version": "3.2.0",
       "author": {
         "name": "Vlad Goncharov",
         "email": "vlad.goncharov@neolab.finance"
@@ -55,7 +55,7 @@
     {
       "name": "sadd",
       "description": "Introduces skills for subagent-driven development, dispatches fresh subagent for each task with code review between tasks, enabling fast iteration with quality gates.",
-      "version": "3.1.1",
+      "version": "3.2.0",
       "author": {
         "name": "Vlad Goncharov",
         "email": "vlad.goncharov@neolab.finance"
@@ -77,7 +77,7 @@
     {
       "name": "sdd",
       "description": "Specification Driven Development workflow commands and agents, based on Github Spec Kit and OpenSpec. Uses specialized agents for effective context management and quality review.",
-      "version": "3.1.2",
+      "version": "3.2.0",
       "author": {
         "name": "Vlad Goncharov",
         "email": "vlad.goncharov@neolab.finance"
@@ -110,7 +110,7 @@
     {
       "name": "docs",
       "description": "Commands for analysing project, writing and refining documentation.",
-      "version": "3.0.0",
+      "version": "3.1.0",
       "author": {
         "name": "Vlad Goncharov",
         "email": "vlad.goncharov@neolab.finance"
@@ -143,7 +143,7 @@
     {
       "name": "fpf",
       "description": "First Principles Framework (FPF) for structured reasoning. Implements ADI (Abduction-Deduction-Induction) cycle for hypothesis generation, logical verification, empirical validation, and auditable decision-making.",
-      "version": "3.0.0",
+      "version": "3.1.0",
       "author": {
         "name": "Vlad Goncharov",
         "email": "vlad.goncharov@neolab.finance"
@@ -154,7 +154,7 @@
     {
       "name": "task-list",
       "description": "Commands for managing a tagged markdown TASKS.md file with sections, due dates, tags, contexts, and time tracking.",
-      "version": "1.0.1",
+      "version": "1.1.0",
       "author": {
         "name": "Vlad Goncharov",
         "email": "vlad.goncharov@neolab.finance"

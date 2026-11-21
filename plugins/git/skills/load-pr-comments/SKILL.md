@@ -1,5 +1,6 @@
 ---
 name: load-pr-comments
+disable-model-invocation: true
 description: Use to load open/unresolved PR review comments then aggregate them as tasks in .specs/comments/*.md for parallel agents to fix.
 argument-hint: Optional PR number or URL - defaults to the PR of the current git branch
 ---

@@ -110,6 +110,7 @@
   * [Agents](reference/agents.md)
   * [Commands](reference/commands.md)
   * [Skills](reference/skills.md)
+  * [Skill Frontmatter](reference/skill-frontmatter.md)
 * [Resources](resources/README.md)
   * [Research Papers](resources/papers.md)
   * [Related Projects](resources/related-projects.md)

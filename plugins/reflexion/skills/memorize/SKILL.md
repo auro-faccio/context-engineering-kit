@@ -1,5 +1,6 @@
 ---
 name: memorize
+disable-model-invocation: true
 description: Curates insights from reflections and critiques into CLAUDE.md using Agentic Context Engineering
 argument-hint: Optional source specification (last, selection, chat:<id>) or --dry-run for preview
 ---

@@ -1,5 +1,6 @@
 ---
 name: write-tests
+disable-model-invocation: true
 description: Add missing test coverage for your local code changes by generating new test files (covers uncommitted and untracked changes, or the latest commit if everything is committed). Use when you want write tests for new logic or increase test coverage.
 argument-hint: what tests or modules to focus on
 ---

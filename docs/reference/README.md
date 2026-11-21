@@ -9,3 +9,4 @@ This reference section provides comprehensive documentation for all components o
 - [Command Index](./commands.md) - Complete alphabetical listing of all available commands across all plugins, with descriptions and usage patterns.
 - [Skill Index](./skill-index.md) - Reference guide for all skills included in the marketplace, describing their purpose and when they're automatically applied.
 - [Agent Index](./agent-index.md) - Catalog of all specialized agents available across plugins, with their capabilities and use cases.
+- [Skill Frontmatter](./skill-frontmatter.md) - Fields, invocation control and substitutions for writing `SKILL.md` files.

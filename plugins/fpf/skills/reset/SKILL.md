@@ -1,5 +1,6 @@
 ---
 name: reset
+disable-model-invocation: true
 description: "Reset the FPF reasoning cycle to start fresh"
 ---
 

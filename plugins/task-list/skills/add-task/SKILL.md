@@ -1,5 +1,6 @@
 ---
 name: add-task
+disable-model-invocation: true
 description: Add a new task or subtask to TASKS.md using the tagged markdown format
 argument-hint: Task text plus optional section, parent task, and metadata (e.g. "Buy milk #home @store due:2025-06-10")
 ---
